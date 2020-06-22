@@ -10,4 +10,11 @@
     display: flex;
     justify-content: space-between;
     padding-top: 36.25px;
+    padding-bottom: 47.25px;
+}
+
+@media screen and (max-width: 780px) {
+    .profile {
+        flex-direction: column;
+    }
 }

@@ -1,0 +1,9 @@
+.elements__image {
+    background: #000; 
+    background-image: url('../../../images/karachaevsk.jpg');  
+    height: 282px;  
+    width: 282px;
+    background-size: cover;
+    border-radius: 10px 10px 0 0;
+    
+}
