@@ -1,0 +1,13 @@
+.profile__info {
+    display: grid;
+    grid-template-areas: 
+    'profile__name profile__add-button'
+    'profile__about profile__about';
+    grid-row-gap: 16px;
+    grid-column-gap: 17px;
+    grid-template-columns: 1fr 24px;
+    align-items: baseline; 
+    margin-top: 21.75px;
+    margin-right: auto;
+    margin-left: 41.25px;
+}
