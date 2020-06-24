@@ -1,0 +1,7 @@
+.popup__close-container {
+    max-width: 530px;
+    height: 375px;
+    width: 100%;
+    background: none;     
+    position: relative; 
+}

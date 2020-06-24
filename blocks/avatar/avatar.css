@@ -1,19 +1,17 @@
-.profile__avatar {
-    border-radius: 150px;
-    /* width: 127.5px;
-    height: 127.5px; */
+.avatar {
+    border-radius: 150px;    
     width: 120px;
     height: 120px;
 }    
 
 @media screen and (max-width: 900px) {
-    .profile__avatar {
+    .avatar {
         margin-left: 27px;  
     }
 }
 
 @media screen and (max-width: 780px) {
-    .profile__avatar {
+    .avatar {
         margin: 0 auto;  
     }
 }

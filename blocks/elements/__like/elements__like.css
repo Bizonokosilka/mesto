@@ -1,4 +1,10 @@
 .elements__like {
     align-self: center; 
     margin-right: 22.24px;   
+    cursor: pointer;
+}
+
+.elements__like:hover {
+    opacity: .6;
+    transition: .2s linear;
 }
