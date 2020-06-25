@@ -1,11 +1,11 @@
-let popup = document.querySelector('.popup')
-let popupOpenButton = document.querySelector('.profile__open-popup')
-let popupCloseButton = popup.querySelector('.popup__close-icon')
-let nameInput = popup.querySelector('.popup__form-item_el_name')
-let jobInput = popup.querySelector('.popup__form-item_el_about')
-let profileName = document.querySelector('.profile__name')
-let profileAbout = document.querySelector('.profile__about')
-let formElement = popup.querySelector('.popup__form')
+const popup = document.querySelector('.popup')
+const popupOpenButton = document.querySelector('.profile__open-popup')
+const popupCloseButton = popup.querySelector('.popup__close-icon')
+const nameInput = popup.querySelector('.popup__form-item_el_name')
+const jobInput = popup.querySelector('.popup__form-item_el_about')
+const profileName = document.querySelector('.profile__name')
+const profileAbout = document.querySelector('.profile__about')
+const formElement = popup.querySelector('.popup__form')
 
 function popupToggle () {  
 
