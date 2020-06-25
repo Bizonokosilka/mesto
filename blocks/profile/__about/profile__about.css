@@ -1,6 +1,5 @@
 .profile__about {
-    color: #fff;
-    font-family: Inter;
+    color: #fff;    
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -8,6 +7,10 @@
     margin: 0;
     grid-area: about;
     align-self: start;
+    user-select: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 780px) {

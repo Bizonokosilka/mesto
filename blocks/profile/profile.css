@@ -3,13 +3,12 @@
 @import url('./__edit-btn/profile__edit-btn.css');
 @import url('./__info/profile__info.css');
 @import url('./__name/profile__name.css');
-@import url('./__name-container/profile__name-container.css');
 
 .profile {
     display: flex;
     justify-content: space-between;
     padding-top: 40px;
-    padding-bottom: 50px;
+    padding-bottom: 50px;    
 }
 
 @media screen and (max-width: 780px) {

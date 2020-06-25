@@ -1,17 +1,20 @@
 .popup__form-item {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    color: #000;    
-    font-family: Inter;
+    color: #000;      
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    width: 358px;
+    max-width: 358px;
+    width: 99%;
     margin-top: 29.74px;
     padding-bottom: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .popup__form-item:last-of-type {
-    margin-bottom: 35px;
+    margin-bottom: 48px;
 }
