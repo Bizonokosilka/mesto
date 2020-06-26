@@ -2,7 +2,7 @@
 
 
 .header {
-    height: 119px;   
+    min-height: 119px;   
     display: flex;   
     flex-direction: column;
     justify-content: space-between;  
