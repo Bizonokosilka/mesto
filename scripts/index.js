@@ -7,15 +7,16 @@ const profileName = document.querySelector('.profile__name');           // На�
 const profileAbout = document.querySelector('.profile__about');         // Находим "информацию о себе" в DOM
 const formElement = popup.querySelector('.popup__form');                // Находим форму в DOM
 
+
 function popupToggle () {                                               //Toogle для попапа по классу.
 
-  popup.classList.toggle('popup_opened');                               
-
-  if (popup.classList.contains('popup_opened')) {                       //В момент открытия модального окна данные профиля заносяться в форму.
+  if (!popup.classList.contains('popup_opened')) {                       //В момент открытия модального окна данные профиля заносяться в форму.
     
     nameInput.value = profileName.textContent;                         
-    jobInput.value = profileAbout.textContent;     
+    jobInput.value = profileAbout.textContent; 
   }  
+
+  popup.classList.toggle('popup_opened');                             
 }
 
 function formSubmitHandler (evt) {                                      // Обработчик отправки формы.

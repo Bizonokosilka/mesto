@@ -1,6 +1,7 @@
 .header__logo {
     padding-top: 45px;
     align-self: start;
+    margin-left: 2px;
 }
 
 @media screen and (max-width: 900px) {
