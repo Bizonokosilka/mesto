@@ -107,22 +107,20 @@
         </footer>
 
         <section class="popup">
-            <div class="popup__close-container">
-                <img class="popup__close-icon" src="./images/сloseIcon.png" alt="Кнопка закрытия">
-                <div class="popup__container">            
-                    <div class="popup__content">
-                        <h2 class="popup__title">Редактировать профиль</h2>
-                        <form name="popupForm" class="popup__form">
-                            <fieldset class="popup__form-input">                            
-                                <input type="text" required name="name" class="popup__form-item popup__form-item_el_name">
-                                <input type="text" required name="about" class="popup__form-item popup__form-item_el_about">
-                            </fieldset>  
-                            <button type="submit" class="popup__save-btn">Сохранить</button>                  
-                        </form>                
-                        
-                    </div>
-                </div>
-            </div>    
+            
+            <div class="popup__container">     
+                <button class="popup__close-btn">
+                    <img src="./images/сloseIcon.png" alt="Кнопка закрытия">
+                </button>       
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form name="popupForm" method="#" action="#" class="popup__form">
+                    <fieldset class="popup__form-input">                            
+                        <input type="text" required name="name" class="popup__form-item popup__form-item_el_name">
+                        <input type="text" required name="about" class="popup__form-item popup__form-item_el_about">
+                    </fieldset>  
+                    <button type="submit" class="popup__save-btn">Сохранить</button>                  
+                </form>
+            </div>
         </section>
     </div>
     <script src='./scripts/index.js'></script>    
