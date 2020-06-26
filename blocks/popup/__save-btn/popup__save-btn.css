@@ -2,6 +2,7 @@
     background: black;
     box-shadow: none;
     border: none;
+    outline:none; 
     padding: 0;
     color: #fff;
     max-width: 358px;
