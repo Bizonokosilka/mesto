@@ -5,13 +5,13 @@
 }    
 
 @media screen and (max-width: 900px) {
-    .avatar {
+    .profile__avatar {
         margin-left: 27px;  
     }
 }
 
 @media screen and (max-width: 780px) {
-    .avatar {
+    .profile__avatar {
         margin: 0 auto;  
     }
 }
