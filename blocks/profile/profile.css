@@ -3,6 +3,7 @@
 @import url('./__edit-btn/profile__edit-btn.css');
 @import url('./__info/profile__info.css');
 @import url('./__name/profile__name.css');
+@import url('./__avatar/profile__avatar.css');
 
 .profile {
     display: flex;
