@@ -1,6 +1,6 @@
 const popup = document.querySelector('.popup');                         // Находим попап в DOM
 const popupEditButton = document.querySelector('.profile__edit-btn');   // Находим кнопку "редактировать" в DOM
-const popupEditCloseButton = popup.querySelector('.popup__close-btn');      // Находим кнопку "закрыть" в DOM
+const popupEditCloseButton = popup.querySelector('.popup__close-btn');  // Находим кнопку "закрыть" в DOM
 const nameInput = popup.querySelector('.popup__form-item_el_name');     // Находим поле формы "имя" в DOM
 const jobInput = popup.querySelector('.popup__form-item_el_about');     // Находим поле формы "о себе" в DOM 
 const profileName = document.querySelector('.profile__name');           // Находим "имя профиля" в DOM
