@@ -13,6 +13,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    outline:none; 
 }
 
 .popup__form-item:last-of-type {

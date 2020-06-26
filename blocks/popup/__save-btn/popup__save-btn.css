@@ -2,6 +2,7 @@
     background: black;
     box-shadow: none;
     border: none;
+    outline:none; 
     padding: 0;
     color: #fff;
     max-width: 358px;
@@ -15,6 +16,7 @@
     line-height: 22px;
     text-align: center;
     align-self: center;
+    
 }
 
 .popup__save-btn:hover {
