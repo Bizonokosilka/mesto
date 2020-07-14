@@ -29,62 +29,8 @@
             </section>
 
             <section class="elements">
-                <ul class="elements__list">
-                    <li class="elements__item">                            
-                        <img class="elements__image" src="./images/karachaevsk.jpg" alt='Сентинский храм в Карачаево-Черкесии'>
-                        <div class="elements__footer">
-                            <p class="elements__title">Карачаевск</p>  
-                            <button class="elements__like-btn">
-                                <img src='./images/like.svg' alt='сердечко'>                                
-                            </button>
-                        </div>
-                    </li>
-                    <li class="elements__item">
-                        <img class="elements__image" src="./images/elbrus.jpg" alt='Гора Эльбрус на закате'>
-                        <div class="elements__footer">
-                            <p class="elements__title">Гора Эльбрус</p>
-                            <button class="elements__like-btn">
-                                <img src='./images/like.svg' alt='сердечко'>                                
-                            </button>       
-                        </div>
-                    </li>
-                    <li class="elements__item">
-                        <img class="elements__image" src="./images/dombay.jpg" alt='Вершина Белалакая на Домбае'>
-                        <div class="elements__footer">
-                            <p class="elements__title">Домбай</p>
-                            <button class="elements__like-btn">
-                                <img src='./images/like.svg' alt='сердечко'>                                
-                            </button>
-                        </div>
-                    </li>
-                    <li class="elements__item">
-                        <img class="elements__image" src="./images/elbrus.jpg" alt='Гора Эльбрус на закате'>
-                        <div class="elements__footer">
-                            <p class="elements__title">Гора Эльбрус</p>
-                            <button class="elements__like-btn">
-                                <img src='./images/like.svg' alt='сердечко'>                                
-                            </button>
-                        </div>
-                    </li>
-                    <li class="elements__item">
-                        <img class="elements__image" src="./images/dombay.jpg" alt='Вершина Белалакая на Домбае'>
-                        <div class="elements__footer">
-                            <p class="elements__title">Домбай</p>
-                            <button class="elements__like-btn">
-                                <img src='./images/like.svg' alt='сердечко'>                                
-                            </button>
-                        </div>
-                    </li>
-                    <li class="elements__item">
-                        <img class="elements__image" src="./images/karachaevsk.jpg" alt='Сентинский храм в Карачаево-Черкесии'>
-                        <div class="elements__footer">
-                            <p class="elements__title">Карачаево-Черкесия</p>
-                            <button class="elements__like-btn">
-                                <img src='./images/like.svg' alt='сердечко'>                                
-                            </button>
-                        </div>
-                    </li> 
-                </ul>                              
+                <ul class="elements__list">                    
+                </ul>                           
             </section>
 
         </main>
@@ -93,13 +39,13 @@
             <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
 
-        <section class="popup">            
+        <section class="popup popup_profile">            
             <div class="popup__container">     
                 <button class="popup__close-btn">
                     <img src="./images/сloseIcon.png" alt="Кнопка закрытия">
                 </button>       
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form name="popupForm" method="POST" action="#" class="popup__form">
+                <form name="popupForm" method="POST" action="#" class="popup__form popup__form_profile">
                     <fieldset class="popup__form-input">                            
                         <input type="text" required name="name" class="popup__form-item popup__form-item_el_name">
                         <input type="text" required name="about" class="popup__form-item popup__form-item_el_about">
@@ -108,6 +54,47 @@
                 </form>
             </div>
         </section>
+
+        <section class="popup popup_card">            
+            <div class="popup__container">     
+                <button class="popup__close-btn">
+                    <img src="./images/сloseIcon.png" alt="Кнопка закрытия">
+                </button>       
+                <h2 class="popup__title">Новое место</h2>
+                <form name="popupForm" method="POST" action="#" class="popup__form">
+                    <fieldset class="popup__form-input">                            
+                        <input type="text" required name="name" class="popup__form-item popup__form-item_el_name" placeholder="Название">
+                        <input type="text" required name="link" class="popup__form-item popup__form-item_el_picture_link" placeholder="Ссылка на картинку">
+                    </fieldset>  
+                    <button type="submit" class="popup__save-btn">Создать</button>                  
+                </form>
+            </div>
+        </section>
+
+        <section class="popup popup_picture">            
+            <figure class="popup__full-image-figure"> 
+                <button class="popup__close-btn">
+                    <img src="./images/сloseIcon.png" alt="Кнопка закрытия">
+                </button> 
+                <img class="popup__full-image" src="#" alt="">  
+                <figcaption class="popup__caption"></figcaption>
+            </figure>
+        </section>
+
+        <template class="elements__template">
+            <li class="elements__item">                            
+                <img class="elements__image" src="#" alt=''>
+                <button class="elements__trash-btn">
+                    <img src='./images/Trash.svg' alt='удалить'>                                
+                </button>
+                <div class="elements__footer">
+                    <p class="elements__title"></p>  
+                    <button class="elements__like-btn">
+                        <img src='./images/like.svg' alt='сердечко'>                                
+                    </button>
+                </div>
+            </li>
+        </template>
     </div>
     <script src='./scripts/index.js'></script>    
 </body>

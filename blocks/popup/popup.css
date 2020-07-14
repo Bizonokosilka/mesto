@@ -5,16 +5,24 @@
 @import url('./__save-btn/popup__save-btn.css');
 @import url('./__form-item/popup__form-item.css');
 @import url('./__close-btn/popup__close-btn.css');
+@import url('./__full-image-figure/popup__full-image-figure.css');
+@import url('./__full-image/popup__full-image.css');
+@import url('./__caption/popup__caption.css');
 
 
 .popup {
+  transition: opacity .5s ease-out;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,.5);
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.5s linear;
 }
