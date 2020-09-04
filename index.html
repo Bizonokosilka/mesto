@@ -45,12 +45,12 @@
                     <img src="./images/сloseIcon.png" alt="Кнопка закрытия">
                 </button>       
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form name="popupForm" method="POST" action="#" class="popup__form popup__form_profile">
+                <form name="popupForm" method="POST" action="#" class="popup__form popup__form_profile" novalidate>
                     <fieldset class="popup__form-input">                            
                         <input type="text" required name="name" class="popup__form-item popup__form-item_el_name">
                         <input type="text" required name="about" class="popup__form-item popup__form-item_el_about">
                     </fieldset>  
-                    <button type="submit" class="popup__save-btn">Сохранить</button>                  
+                    <button type="submit" class="popup__save-btn" disabled>Сохранить</button>                  
                 </form>
             </div>
         </section>
@@ -61,10 +61,10 @@
                     <img src="./images/сloseIcon.png" alt="Кнопка закрытия">
                 </button>       
                 <h2 class="popup__title">Новое место</h2>
-                <form name="popupForm" method="POST" action="#" class="popup__form">
+                <form name="popupForm" method="POST" action="#" class="popup__form" novalidate>
                     <fieldset class="popup__form-input">                            
                         <input type="text" required name="name" class="popup__form-item popup__form-item_el_name" placeholder="Название">
-                        <input type="text" required name="link" class="popup__form-item popup__form-item_el_picture_link" placeholder="Ссылка на картинку">
+                        <input type="email" required name="link" class="popup__form-item popup__form-item_el_picture_link" placeholder="Ссылка на картинку">
                     </fieldset>  
                     <button type="submit" class="popup__save-btn">Создать</button>                  
                 </form>
@@ -96,7 +96,8 @@
             </li>
         </template>
     </div>
-    <script src='./scripts/index.js'></script>    
+    <script src='./scripts/index.js'></script>
+    <script src='./scripts/validate.js'></script>    
 </body>
 </html>
 
