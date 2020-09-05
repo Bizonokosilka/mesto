@@ -1,14 +1,19 @@
 @import url('./__title/popup__title.css');
 @import url('./__form-input/popup__form-input.css');
-@import url('./__form-input/popup__form-input_type_error.css');
+@import url("./__error/popup__error.css");
+@import url('./__error/_visible/popup__error_visible.css');
 @import url('./__container/popup__container.css');
 @import url('./_opened/popup_opened.css');
 @import url('./__save-btn/popup__save-btn.css');
 @import url('./__form-item/popup__form-item.css');
+@import url('./__form-item/_type_error/popup__form-item_type_error.css');
 @import url('./__close-btn/popup__close-btn.css');
 @import url('./__full-image-figure/popup__full-image-figure.css');
 @import url('./__full-image/popup__full-image.css');
 @import url('./__caption/popup__caption.css');
+@import url('./__save-btn/popup__save-btn_disabled.css');
+@import url('./__input-container/popup__input-container.css');
+
 
 
 .popup {
