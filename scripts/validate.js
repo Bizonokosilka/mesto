@@ -26,9 +26,6 @@ const hasInvalidInput = (inputList) => {                                // Фу�
   })                                                                    // Обход массива прекратится и вся фунцкция
 };                                                                      // hasInvalidInput вернёт true                                                                      
 
-console.log('.popup__form-item')
-console.log('.popup__save-btn')
-
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {                                        // Если есть хотя бы один невалидный инпут
     buttonElement.classList.add('popup__save-btn_disabled');               // сделай кнопку неактивной
@@ -66,3 +63,4 @@ const enableValidation = () => {
 
 
 enableValidation();
+

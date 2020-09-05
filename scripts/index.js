@@ -31,16 +31,6 @@ const imagePopupFullImage = imagePopup.querySelector('.popup__full-image');     
 const imagePopupCloseButton =  imagePopup.querySelector('.popup__close-btn');           // кнопка закрыть полное изображение
 const imagePopupCaption = imagePopup.querySelector('.popup__caption');                  // подпись полного изображения
 
-/* const Validation = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__form-item',
-  submitButtonSelector: '.popup__save-btn',
-  inactiveButtonClass: 'popup__save-btn_disabled',
-  inputErrorClass: 'popup__form-item_type_error',
-  errorClass: 'popup__error_visible'
-}; */
-
-
 const initialCards = [                                                                   //массив начальных карточек
   {
       name: 'Архыз',
