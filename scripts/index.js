@@ -31,6 +31,8 @@ const imagePopupFullImage = imagePopup.querySelector('.popup__full-image');     
 const imagePopupCloseButton =  imagePopup.querySelector('.popup__close-btn');           // кнопка закрыть полное изображение
 const imagePopupCaption = imagePopup.querySelector('.popup__caption');                  // подпись полного изображения
 
+
+
 const initialCards = [                                                                   //массив начальных карточек
   {
       name: 'Архыз',
