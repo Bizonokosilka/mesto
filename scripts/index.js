@@ -1,9 +1,12 @@
+import Card from '../scripts/Card.js'; 
+import {openPopup, closePopup, closePopupByOverlay} from '../scripts/utils.js';
+
 const profileName = document.querySelector('.profile__name');                           // имя профиля 
 const profileAbout = document.querySelector('.profile__about');                         // информация о себе 
-const elementsTitle = document.querySelector('.elements__title');                       // название места в карточке 
-const elementsImage = document.querySelector('.elements__image');                       // картинка карточки 
+/* const elementsTitle = document.querySelector('.elements__title');                    // название места в карточке  */
+/* const elementsImage = document.querySelector('.elements__image');                    // картинка карточки  */
 const elementsList = document.querySelector('.elements__list');                         // контейнер карточек
-const elementsTemplate =  document.querySelector('.elements__template');                // template карточки
+/* const elementsTemplate =  document.querySelector('.elements__template');             // template карточки */
 
 
 const profilePopup = document.querySelector('.popup_profile');                          // попап профиля 
@@ -20,16 +23,16 @@ const cardPopupCloseButton =  cardPopup.querySelector('.popup__close-btn');     
 const cardFormElement = cardPopup.querySelector('.popup__form');                        // форма карточки
 const cardPlaceInput = cardPopup.querySelector('.popup__form-item_el_name');            // поле формы "название места" 
 const cardLinkInput = cardPopup.querySelector('.popup__form-item_el_picture_link');     // поле формы "ссылка на изображение" 
-const cardPopupLikeButton =  cardPopup.querySelector('elements__like-btn');             // кнопка "лайк" карточки
-const cardPopupDeleteButton =  cardPopup.querySelector('elements__trash-btn');          // кнопка "удалить карточку"
+/* const cardPopupLikeButton =  cardPopup.querySelector('elements__like-btn');             // кнопка "лайк" карточки */
+/* const cardPopupDeleteButton =  cardPopup.querySelector('elements__trash-btn');          // кнопка "удалить карточку" */
 
 
 
 
-const imagePopup = document.querySelector('.popup_picture');                            // попап полного изображения
-const imagePopupFullImage = imagePopup.querySelector('.popup__full-image');             // полное изображение
-const imagePopupCloseButton =  imagePopup.querySelector('.popup__close-btn');           // кнопка закрыть полное изображение
-const imagePopupCaption = imagePopup.querySelector('.popup__caption');                  // подпись полного изображения
+export const imagePopup = document.querySelector('.popup_picture');                            // попап полного изображения
+export const imagePopupFullImage = imagePopup.querySelector('.popup__full-image');             // полное изображение
+export const imagePopupCloseButton =  imagePopup.querySelector('.popup__close-btn');           // кнопка закрыть полное изображение
+export const imagePopupCaption = imagePopup.querySelector('.popup__caption');                  // подпись полного изображения
 
 
 
@@ -60,17 +63,6 @@ const initialCards = [                                                          
   }
 ];
 
-
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupByEsc);
-}
-
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closePopupByEsc);
-}                                            
-
 if (!profilePopup.classList.contains('popup_opened')) {                 //В момент открытия модального окна данные профиля заносяться в форму.
   
   profileNameInput.value = profileName.textContent;                         
@@ -84,7 +76,7 @@ function profileSubmitHandler (evt) {                                   // Об�
   closePopup(profilePopup);                                            
 };
 
-function createCard(name,link) {                                        // Создаём карточку из temlate
+/* function createCard(name,link) {                                        // Создаём карточку из temlate
   const elementsItem = elementsTemplate.content.cloneNode(true);                        
   elementsItem.querySelector('.elements__title').textContent = name;
   elementsItem.querySelector('.elements__image').alt = name;
@@ -93,58 +85,58 @@ function createCard(name,link) {                                        // Со�
   elementsItem.querySelector('.elements__like-btn').addEventListener('click', likeCard);
   elementsItem.querySelector('.elements__image').addEventListener('click', openFullImage);
   return elementsItem;  
-};
+}; */
 
-function addCard(element) {                                            // Добавляем карточку
+/* function addCard(element) {                                            // Добавляем карточку
   elementsList.prepend(element);  
-};
+}; */
 
-initialCards.forEach(item => {                                         // Создаём начальные карточки из массива
+/* initialCards.forEach(item => {                                         // Создаём начальные карточки из массива
   const element = createCard(item.name, item.link);
   addCard(element);  
-});
+}); */
 
-function deleteCard(event) {                                           // Удаляем карточку
+/* function deleteCard(event) {                                           // Удаляем карточку
   const elementsItem = event.target.closest('.elements__item');
   elementsItem.remove();
-};
+}; */
 
-function likeCard(event) {                                             // Переключаем лайк по классу
+/* function likeCard(event) {                                             // Переключаем лайк по классу
   event.target.classList.toggle('elements__like-btn_active');
-};
+}; */
 
-function openFullImage(event) {                                        // Открываем полное изображение
+
+
+initialCards.forEach((item) => {
+  const card = new Card(item, '.elements__template');
+  const cardElement = card.generateCard();  
+  elementsList.prepend(cardElement);
+});
+
+
+/* function openFullImage(event) {                                        // Открываем полное изображение
   const elementsItem = event.target.closest('.elements__image');
   imagePopupFullImage.src = elementsItem.src;
   imagePopupFullImage.alt = elementsItem.alt;
   imagePopupCaption.textContent = elementsItem.alt; 
   openPopup(imagePopup);
-}
+} */
 
 function cardSubmitHandler (evt) {                                     // Обработчик отправки формы место.
   evt.preventDefault();                                                 
-  const name = cardPlaceInput.value;
-  const link = cardLinkInput.value;
-  const element = createCard(name, link);
-  addCard(element);
+  const newPlace = {
+    name: cardPlaceInput.value,
+    link: cardLinkInput.value
+  };
+  const newCard = new Card(newPlace, '.elements__template');
+  const cardElement = newCard.generateCard();
+  elementsList.prepend(cardElement);
   closePopup(cardPopup);
   cardPlaceInput.value = '';  
   cardLinkInput.value = '';
 }; 
 
-function closePopupByOverlay(event) {
-  const currentPopup = document.querySelector('.popup_opened');
-  if (currentPopup && event.target === event.currentTarget) { 
-    closePopup(currentPopup); 
-  }
-}
 
-function closePopupByEsc(event) {
-  const currentPopup = document.querySelector('.popup_opened');
-  if (currentPopup && event.key === 'Escape') { 
-    closePopup(currentPopup);
-  }
-}
 
 profilePopupEditButton.addEventListener('click', () => openPopup(profilePopup));                 // Слушатель кнопки "редактировать профиль"
 cardPopupAddButton.addEventListener('click', () => openPopup(cardPopup));                        // Слушатель кнопки "добавить место"
@@ -155,6 +147,6 @@ cardFormElement.addEventListener('submit', cardSubmitHandler);                  
 imagePopupCloseButton.addEventListener('click', () => closePopup(imagePopup));                    // Слушатель кнопки "закрыть полное изображение"
 cardPopup.addEventListener('mousedown', closePopupByOverlay);
 profilePopup.addEventListener('mousedown', closePopupByOverlay);
-imagePopup.addEventListener('mousedown', closePopupByOverlay);
+
 
 
