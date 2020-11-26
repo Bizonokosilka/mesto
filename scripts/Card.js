@@ -65,6 +65,6 @@ export default class Card {
         this._likeCard();
         });
 
-        imagePopup.addEventListener('mousedown', closePopupByOverlay);
+        imagePopup.addEventListener('mousedown', closePopupByOverlay);        
     }
 }
