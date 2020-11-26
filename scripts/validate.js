@@ -3,6 +3,8 @@ const showInputError = (formElement, inputElement, errorMessage, {inputErrorClas
   inputElement.classList.add(inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add(errorClass);
+  
+
 };
 
 const hideInputError = (formElement, inputElement, {inputErrorClass, errorClass}) => {
@@ -10,6 +12,7 @@ const hideInputError = (formElement, inputElement, {inputErrorClass, errorClass}
   inputElement.classList.remove(inputErrorClass);
   errorElement.classList.remove(errorClass);
   errorElement.textContent = '';
+  console.log('hide')
 };
 
 const checkInputValidity = (formElement, inputElement, {...rest}) => {
@@ -17,13 +20,13 @@ const checkInputValidity = (formElement, inputElement, {...rest}) => {
     showInputError(formElement, inputElement, inputElement.validationMessage, rest);
   } else {
     hideInputError(formElement, inputElement, rest);
-  }
+  }  
 };
 
 const hasInvalidInput = (inputList) => {                                // Функция принимает массив полей
   return inputList.some((inputElement) => {                             // проходим по этому массиву методом some
     return !inputElement.validity.valid;                                // Если поле не валидно, колбэк вернёт true
-  })                                                                    // Обход массива прекратится и вся фунцкция
+  })                                                                     // Обход массива прекратится и вся фунцкция
 };                                                                      // hasInvalidInput вернёт true                                                                      
 
 const toggleButtonState = (inputList, buttonElement, {inactiveButtonClass}) => {
@@ -33,7 +36,7 @@ const toggleButtonState = (inputList, buttonElement, {inactiveButtonClass}) => {
   } else {
     buttonElement.classList.remove(inactiveButtonClass);            // иначе сделай кнопку активной
     buttonElement.removeAttribute('disabled', 'disabled'); 
-  }
+  }  
 };
 
 const setEventListeners = (formElement, {inputSelector, submitButtonSelector, ...rest}) => {
@@ -46,6 +49,8 @@ const setEventListeners = (formElement, {inputSelector, submitButtonSelector, ..
       toggleButtonState(inputList, buttonElement, rest);
     });
   });
+  
+  
 };
 
 const enableValidation = ({formSelector, ...rest}) => {
@@ -56,6 +61,11 @@ const enableValidation = ({formSelector, ...rest}) => {
     });
     setEventListeners(formElement, rest);
   });
+  console.log('3-enblVld')  
+  console.log(formSelector)
+  
+  
+
 };
 
 enableValidation({

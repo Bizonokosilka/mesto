@@ -1,4 +1,5 @@
-import Card from '../scripts/Card.js'; 
+import Card from '../scripts/Card.js';
+import FormValidator from '../scripts/FormValidator.js'; 
 import {openPopup, closePopup, closePopupByOverlay} from '../scripts/utils.js';
 
 const profileName = document.querySelector('.profile__name');                           // имя профиля 
@@ -62,6 +63,25 @@ const initialCards = [                                                          
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+
+const validationSettings = {
+  formSelector: '.popup__form',
+  fieldsetSelector: '.popup__form-input',
+  inputSelector: '.popup__form-item',
+  submitButtonSelector: '.popup__save-btn',
+  inactiveButtonClass: 'popup__save-btn_disabled',
+  inputErrorClass: 'popup__form-item_type_error',
+  errorClass: 'popup__error_visible'
+};
+
+const validCard = new FormValidator(validationSettings, cardFormElement);
+
+console.log(validCard);
+
+validCard.enableValidation();
+
+const validProfile = new FormValidator(validationSettings, profileFormElement);
+validProfile.enableValidation();
 
 if (!profilePopup.classList.contains('popup_opened')) {                 //В момент открытия модального окна данные профиля заносяться в форму.
   
@@ -138,13 +158,15 @@ function cardSubmitHandler (evt) {                                     // Обр
 
 
 
+
+
 profilePopupEditButton.addEventListener('click', () => openPopup(profilePopup));                 // Слушатель кнопки "редактировать профиль"
 cardPopupAddButton.addEventListener('click', () => openPopup(cardPopup));                        // Слушатель кнопки "добавить место"
 profilePopupCloseButton.addEventListener('click', () => closePopup(profilePopup));                // Слушатель кнопки "закрыть профиль"
 cardPopupCloseButton.addEventListener('click', () => closePopup(cardPopup));                      // Слушатель кнопки "закрыть место"
 profileFormElement.addEventListener('submit', profileSubmitHandler);                               // Слушатель кнопки "сохранить профиль"
 cardFormElement.addEventListener('submit', cardSubmitHandler);                                     // Слушатель кнопки "добавить место" 
-imagePopupCloseButton.addEventListener('click', () => closePopup(imagePopup));                    // Слушатель кнопки "закрыть полное изображение"
+/* imagePopupCloseButton.addEventListener('click', () => closePopup(imagePopup));                    // Слушатель кнопки "закрыть полное изображение" */
 cardPopup.addEventListener('mousedown', closePopupByOverlay);
 profilePopup.addEventListener('mousedown', closePopupByOverlay);
 
