@@ -6,29 +6,31 @@ export default class FormValidator {
         this._inactiveButtonClass = validationSettings.inactiveButtonClass;
         this._inputErrorClass = validationSettings.inputErrorClass;
         this._errorClass = validationSettings.errorClass;
-        /* this._fieldsetSelector = validationSettings.fieldsetSelector; */
+        this._formSelector = validationSettings.formSelector;
 
         this._currentFormSelector = currentFormSelector;
     }
     
     _showInputError = (inputElement, errorMessage) => {
-        const errorElement = formElement.querySelector(`#${this._inputElement.id}-error`);
+        console.log(this._currentFormSelector);
+        const errorElement = this._currentFormSelector.querySelector(`#${this._inputElement.id}-error`);
+        console.log(errorElement);
         inputElement.classList.add(this._inputErrorClass);
         errorElement.textContent = errorMessage;
-        errorElement.classList.add(this._errorClass); 
-        console.log('showInputError works')   
+        errorElement.classList.add(this._errorClass);
+        console.log('show')    
     };
     
     _hideInputError = (inputElement) => {
-        const errorElement = formElement.querySelector(`#${this._inputElement.id}-error`);
+        const errorElement = this._currentFormSelector.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.remove(this._inputErrorClass);
         errorElement.classList.remove(this._errorClass);
         errorElement.textContent = '';
-        console.log('hideInputError works')
+        console.log('hide')
     };
-    
+
     _checkInputValidity = (inputElement) => {
-        if (inputElement.validity.valid) {
+        if (!inputElement.validity.valid) {
             this._showInputError(inputElement, inputElement.validationMessage);
         } else {
             this._hideInputError(inputElement);
@@ -59,7 +61,8 @@ export default class FormValidator {
         const buttonElement = formElement.querySelector(this._submitButtonSelector);         
         this._toggleButtonState(inputList, buttonElement);                              //проверить состояние кнопки в самом начале
         inputList.forEach((inputElement) => {
-            inputElement.addEventListener('input', function () {
+            inputElement.addEventListener('input', () => {
+                console.log(inputElement.validity.valid)
                 this._checkInputValidity(inputElement);
                 this._toggleButtonState(inputList, buttonElement);
             });

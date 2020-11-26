@@ -71,7 +71,7 @@ const validationSettings = {
   inactiveButtonClass: 'popup__save-btn_disabled',
   inputErrorClass: 'popup__form-item_type_error',
   errorClass: 'popup__error_visible',
-  fieldsetSelector: '.popup__form-input'  
+  lableSelector: '.popup__input-container'  
 };
 
 const validCard = new FormValidator(validationSettings, cardFormElement);
