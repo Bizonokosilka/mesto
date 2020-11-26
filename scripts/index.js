@@ -65,13 +65,13 @@ const initialCards = [                                                          
 ];
 
 const validationSettings = {
-  formSelector: '.popup__form',
-  fieldsetSelector: '.popup__form-input',
-  inputSelector: '.popup__form-item',
+  formElement: '.popup__form',
+  inputElement: '.popup__form-item',
   submitButtonSelector: '.popup__save-btn',
   inactiveButtonClass: 'popup__save-btn_disabled',
   inputErrorClass: 'popup__form-item_type_error',
-  errorClass: 'popup__error_visible'
+  errorClass: 'popup__error_visible',
+  fieldsetSelector: '.popup__form-input'  
 };
 
 const validCard = new FormValidator(validationSettings, cardFormElement);
