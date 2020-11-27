@@ -66,8 +66,6 @@ const validationSettings = {
 
 const validCard = new FormValidator(validationSettings, cardFormElement);
 
-/* validCard.checkButton(); */
-
 validCard.enableValidation();
 
 const validProfile = new FormValidator(validationSettings, profileFormElement);
@@ -95,10 +93,8 @@ function handleImageClick(name, link) {
 function createCard(item) {
   const card = new Card(item, '.elements__template', handleImageClick);
   const cardElement = card.generateCard();  
-  return cardElement
+  return cardElement;
 }
-
-
 
 initialCards.forEach((item) => {
   const cardElement = createCard(item) 
@@ -118,8 +114,7 @@ function cardSubmitHandler (evt) {                                     // Обр
   cardLinkInput.value = '';
 }; 
 
-profilePopupEditButton.addEventListener('click', () => {                                        // Слушатель кнопки "редактировать профиль"  
-  
+profilePopupEditButton.addEventListener('click', () => {                                        // Слушатель кнопки "редактировать профиль"    
   profileNameInput.value = profileName.textContent;                         
   profileJobInput.value = profileAbout.textContent;
   validProfile.checkButton(); 

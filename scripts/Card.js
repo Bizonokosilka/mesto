@@ -7,18 +7,15 @@ export default class Card {
     }
 
     _getTemplate() {
-        const cardElement = document.querySelector(this._cardSelector).content.querySelector('.elements__item').cloneNode(true);
-    
+        const cardElement = document.querySelector(this._cardSelector).content.querySelector('.elements__item').cloneNode(true);    
         return cardElement;
     }
     
     generateCard() {
         this._element = this._getTemplate();
-        this._setEventListeners();
-    
+        this._setEventListeners();    
         this._element.querySelector('.elements__image').src = this._link;
-        this._element.querySelector('.elements__title').textContent = this._name;        
-    
+        this._element.querySelector('.elements__title').textContent = this._name;     
         return this._element;
     }
 
@@ -33,12 +30,10 @@ export default class Card {
     _setEventListeners() {
         this._element.querySelector('.elements__image').addEventListener('click', () => {
             this._handleImageClick(this._name, this._link);
-        });
-    
+        });    
         this._element.querySelector('.elements__trash-btn').addEventListener('click', () => {
         this._deleteCard();
         });
-
         this._element.querySelector('.elements__like-btn').addEventListener('click', () => {
         this._likeCard();
         });        
