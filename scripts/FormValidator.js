@@ -1,5 +1,5 @@
 export default class FormValidator {
-    constructor (validationSettings, currentFormSelector) {
+    constructor (validationSettings, formElement) {
         this._inputElement = validationSettings.inputElement;
         this._submitButtonSelector = validationSettings.submitButtonSelector;
         this._inactiveButtonClass = validationSettings.inactiveButtonClass;
@@ -7,18 +7,18 @@ export default class FormValidator {
         this._errorClass = validationSettings.errorClass;
         this._formSelector = validationSettings.formSelector;
 
-        this._currentFormSelector = currentFormSelector;
+        this._formElement = formElement;
     }
     
     _showInputError = (inputElement, errorMessage) => {
-        const errorElement = this._currentFormSelector.querySelector(`#${inputElement.id}-error`);
+        const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.add(this._inputErrorClass);
         errorElement.textContent = errorMessage;
         errorElement.classList.add(this._errorClass);            
     };
     
     _hideInputError = (inputElement) => {
-        const errorElement = this._currentFormSelector.querySelector(`#${inputElement.id}-error`);
+        const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.remove(this._inputErrorClass);
         errorElement.classList.remove(this._errorClass);
         errorElement.textContent = '';
@@ -29,7 +29,7 @@ export default class FormValidator {
             this._showInputError(inputElement, inputElement.validationMessage);
         } else {
             this._hideInputError(inputElement);
-        }        
+        }             
     };
     
     _hasInvalidInput = (inputList) => {                                         // Функция принимает массив полей
@@ -47,14 +47,22 @@ export default class FormValidator {
             buttonElement.removeAttribute('disabled', 'disabled'); 
         }
     };
+
+    checkButton = () => {
+            const inputList = Array.from(this._formElement.querySelectorAll(this._inputElement));
+            const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
+            inputList.forEach((inputElement) => {                
+                this._checkInputValidity(inputElement);     
+            }) 
+            this._toggleButtonState(inputList, buttonElement);                  
+    }
+    
     
     enableValidation = () => {
-        const inputList = Array.from(this._currentFormSelector.querySelectorAll(this._inputElement));
-        const buttonElement = this._currentFormSelector.querySelector(this._submitButtonSelector);         
-        this._toggleButtonState(inputList, buttonElement);                        //проверить состояние кнопки в самом начале
+        const inputList = Array.from(this._formElement.querySelectorAll(this._inputElement));
+        const buttonElement = this._formElement.querySelector(this._submitButtonSelector);        
         inputList.forEach((inputElement) => {
-            inputElement.addEventListener('input', () => {
-                console.log(inputElement.validity.valid)
+            inputElement.addEventListener('input', () => {                
                 this._checkInputValidity(inputElement);
                 this._toggleButtonState(inputList, buttonElement);
             });
