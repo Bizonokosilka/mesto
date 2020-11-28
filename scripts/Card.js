@@ -13,9 +13,11 @@ export default class Card {
     
     generateCard() {
         this._element = this._getTemplate();
-        this._setEventListeners();    
-        this._element.querySelector('.elements__image').src = this._link;
-        this._element.querySelector('.elements__title').textContent = this._name;     
+        this._cardImage = this._element.querySelector('.elements__image');
+        this._cardImage.src = this._link;
+        this._cardImage.alt = this._name;
+        this._element.querySelector('.elements__title').textContent = this._name;          
+        this._setEventListeners(); 
         return this._element;
     }
 
@@ -28,7 +30,7 @@ export default class Card {
     }
 
     _setEventListeners() {
-        this._element.querySelector('.elements__image').addEventListener('click', () => {
+        this._cardImage.addEventListener('click', () => {
             this._handleImageClick(this._name, this._link);
         });    
         this._element.querySelector('.elements__trash-btn').addEventListener('click', () => {
