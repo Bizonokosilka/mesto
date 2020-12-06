@@ -5,6 +5,18 @@ import PopupWIthForm from '../scripts/PopupWIthForm.js';
 import PopupWithImage from '../scripts/PopupWithImage.js';
 import UserInfo from '../scripts/UserInfo.js';
 
+import {  
+profilePopupEditButton, 
+profileFormElement, 
+profileNameInput,
+profileJobInput,
+cardPopupAddButton,
+cardFormElement,
+validationSettings,
+initialCards
+} from '../scripts/constants.js';
+
+
 const validCard = new FormValidator(validationSettings, cardFormElement);
 
 validCard.enableValidation();
@@ -77,11 +89,5 @@ cardPopupAddButton.addEventListener('click', () => {                            
 
 
 function handleImageClick() {  ; 
-  popupPicture.open();  }
-
-
-
-
-
-
-
+  popupPicture.open();  
+}
