@@ -31,7 +31,11 @@ export default class Card {
 
     _setEventListeners() {
         this._cardImage.addEventListener('click', () => {
-            this._handleImageClick();
+            const data = {
+                link: this._link,                
+                name: this._name,
+            };  
+            this._handleImageClick(data);
         });    
         this._element.querySelector('.elements__trash-btn').addEventListener('click', () => {
         this._deleteCard();

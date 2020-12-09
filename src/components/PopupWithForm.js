@@ -13,7 +13,7 @@ export default class PopupWIthForm extends Popup {
         this._values = {};        
         this._inputList.forEach(input => 
             this._values[input.name] = input.value);
-        /* console.log(this._values);   */              
+        console.log(this._values);                
         return this._values; 
 
     }
