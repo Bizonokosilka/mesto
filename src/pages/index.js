@@ -73,9 +73,8 @@ const user = new UserInfo({
 });
 
 
-const userInfo = user.getUserInfo();
-
 profilePopupEditButton.addEventListener('click', () => {                                 // Слушатель кнопки "редактировать профиль"    
+  const userInfo = user.getUserInfo();
   profileNameInput.value = userInfo.name;                        
   profileJobInput.value = userInfo.about;  
   validProfile.checkButton();   
